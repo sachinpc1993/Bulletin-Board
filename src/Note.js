@@ -54,6 +54,8 @@ class Note extends Component {
     }
 
     render(){
+
+        // THe controller logic
         if (this.state.editing){
             return this.renderForm()
         }
