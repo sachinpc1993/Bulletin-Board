@@ -63,21 +63,23 @@ class Board extends Component {
     }
 
     // To iterate through each note in the array
-    eachNote(note, i){
+    eachNote(Note_temp, i){
         return (
             <Note key={i}
                   index={i}
-                    onChange={this.update}
-                    onRemove={this.remove}>
-                {note.note}
-                </Note>
+                  onChange={this.update}
+                  onRemove={this.remove}>
+                {Note_temp.note}
+            </Note>
         )
     }
 
     render() {
         return (
-            <div className={'board'}>
+            <div className="board">
+
                 {this.state.notes.map(this.eachNote)}
+
                 <button onClick={this.add.bind(null,"New Note")}
                         id="add">
                     <FaPlus/>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FaTrash, FaPen, FaFlag } from 'react-icons/fa'
+
 class Note extends Component {
 
     constructor(props){
