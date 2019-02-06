@@ -15,12 +15,20 @@ class Note extends Component {
         this.save = this.save.bind(this);
     }
 
+    /**
+     * @desc Function to maintain states
+     */
     edit() {
         this.setState({
             editing:true
         })
     }
 
+    /**
+     * @desc Reacts to the onRemove callback in the <Note>.
+     * Also updates the editing flag
+     * @return <Note> elements with callbacks
+     */
     trash(){
         this.setState({
             editing:false
@@ -28,6 +36,12 @@ class Note extends Component {
         this.props.onRemove(this.props.index)
     }
 
+    /**
+     * @desc Saves the modified note text
+     * Updates editing state to false
+     * @param e
+     * @return <Note> elements with callbacks
+     */
     save(e){
         e.preventDefault()
         this.props.onChange(this._newText.value, this.props.index)
@@ -36,6 +50,10 @@ class Note extends Component {
         })
     }
 
+    /**
+     * @desc Form rendering
+     * @return Form returned to React component
+     */
     renderForm(){
         return(
             <div className="note">
@@ -47,6 +65,10 @@ class Note extends Component {
         )
     }
 
+    /**
+     * @desc Display rendering
+     * @return <button> elements with callbacks
+     */
     renderDisplay() {
         return (
             <div className="note">
@@ -61,7 +83,7 @@ class Note extends Component {
 
     render(){
 
-        // THe controller logic
+        // The controller logic
         if (this.state.editing){
             return this.renderForm()
         }
