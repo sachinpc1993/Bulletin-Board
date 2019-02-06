@@ -21,9 +21,10 @@ class Note extends Component {
     }
 
     trash(){
-            this.setState({
-                editing:false
-            })
+        this.setState({
+            editing:false
+        })
+        this.props.onRemove(this.props.index)
     }
 
     save(e){
@@ -39,7 +40,7 @@ class Note extends Component {
             <div className="note">
                 <form onSubmit={this.save}>
                     <textarea ref={input => this._newText = input}/>
-                    <button><FaFlag/></button>
+                    <button id="save"><FaFlag/></button>
                 </form>
             </div>
         )
@@ -51,7 +52,7 @@ class Note extends Component {
                 <p>{this.props.children}</p>
                 <span>
                     <button onClick={this.edit} id='edit'> <FaPen/> </button>
-                    <button onClick={this.trash} id='trash'> <FaTrash/> </button>
+                    <button onClick={this.trash} id='remove'> <FaTrash/> </button>
                 </span>
             </div>
         )
